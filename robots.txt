@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://techtofun.com/sitemap.html
+
+# Disallow admin pages
+Disallow: /admin/
+Disallow: /private/
+Disallow: /tmp/
+
+# Allow search engines to index all content
+Allow: /assets/
+Allow: /
+Allow: /posts/
