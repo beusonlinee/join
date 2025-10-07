@@ -57,12 +57,6 @@ window.addEventListener('scroll', function() {
   const path = window.location.pathname;
   const isHome = /(^\/$|index\.html$)/.test(path);
 
-  // If not on the homepage or ageGate has already been shown, exit
-  if (!isHome || sessionStorage.getItem('ageGateShown') === '1') return;
-
-  // Mark that the age gate has been shown
-  sessionStorage.setItem('ageGateShown', '1');
-
   // Create the modal backdrop element
   const modalBackdrop = document.createElement('div');
   modalBackdrop.className = 'modal-backdrop';
@@ -102,12 +96,6 @@ window.addEventListener('scroll', function() {
 (function() {
   const path = window.location.pathname;
   const isHome = /(^\/$|lander\.html$)/.test(path);
-
-  // If not on the homepage or ageGate has already been shown, exit
-  if (!isHome || sessionStorage.getItem('ageGateShown') === '1') return;
-
-  // Mark that the age gate has been shown
-  sessionStorage.setItem('ageGateShown', '1');
 
   // Create the modal backdrop element
   const modalBackdrop = document.createElement('div');
