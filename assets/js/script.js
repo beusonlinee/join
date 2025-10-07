@@ -53,15 +53,16 @@ window.addEventListener('scroll', function() {
 
 });
 
+
 (function() {
   const path = window.location.pathname;
   const isHome = /(^\/$|index\.html$)/.test(path);
 
-  // Create the modal backdrop element
+  if (!isHome) return; // prevent this block from running on other pages
+
   const modalBackdrop = document.createElement('div');
   modalBackdrop.className = 'modal-backdrop';
 
-  // Set modal content
   modalBackdrop.innerHTML = `
     <div class="modal">
       <h3>Policy Notice</h3>
@@ -73,35 +74,27 @@ window.addEventListener('scroll', function() {
     </div>
   `;
 
-  // Append modal to the body
   document.body.appendChild(modalBackdrop);
   modalBackdrop.style.display = 'flex';
 
-  // Function to close the modal
   function closeGate() {
     modalBackdrop.style.display = 'none';
     modalBackdrop.remove();
   }
 
-  // Event listener for 'Yes' button
   modalBackdrop.querySelector('#age-yes').addEventListener('click', closeGate);
-
-  // Event listener for 'Close' button
   modalBackdrop.querySelector('#age-no').addEventListener('click', closeGate);
 })();
 
-
-
-
 (function() {
   const path = window.location.pathname;
-  const isHome = /(^\/$|lander\.html$)/.test(path);
+  const isLander = /(^\/$|lander\.html$)/.test(path);
 
-  // Create the modal backdrop element
+  if (!isLander) return;
+
   const modalBackdrop = document.createElement('div');
   modalBackdrop.className = 'modal-backdrop';
 
-  // Set modal content
   modalBackdrop.innerHTML = `
     <div class="modal">
       <h3>Policy Notice</h3>
@@ -113,31 +106,18 @@ window.addEventListener('scroll', function() {
     </div>
   `;
 
-  // Append modal to the body
   document.body.appendChild(modalBackdrop);
   modalBackdrop.style.display = 'flex';
 
-  // Function to close the modal
-  function closeGate() {
-    modalBackdrop.style.display = 'none';
-    modalBackdrop.remove();
-  }
+  const redirectUrl = "https://garrix.site/?utm_campaign=WYdqExpNaM&v1=[v1]&v2=[v2]&v3=[v3]";
 
-  // Event listener for 'Yes' button
   modalBackdrop.querySelector('#age-yes').addEventListener('click', function() {
-    window.location.href = "https://garrix.site/?utm_campaign=WYdqExpNaM&v1=[v1]&v2=[v2]&v3=[v3]"; 
-    // Replace with your target page URL
+    window.location.href = redirectUrl;
   });
 
-  // Event listener for 'Close' button
   modalBackdrop.querySelector('#age-no').addEventListener('click', function() {
-    window.location.href = "https://garrix.site/?utm_campaign=WYdqExpNaM&v1=[v1]&v2=[v2]&v3=[v3]"; 
-    // Replace with your target page URL
+    window.location.href = redirectUrl;
   });
 })();
-
-
-
-
 
 
